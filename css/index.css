@@ -12,7 +12,6 @@ html, body {
     height: 100%;
     width: 100%;
     background: rgb(255, 254, 255);
-    overflow-y: hidden;
 }
 
 .main_header-container{
@@ -120,7 +119,6 @@ html, body {
     width: 100%;
     display: grid;
     grid-template-rows: 100%;
-    overflow: hidden;
 
 }
 
@@ -133,7 +131,6 @@ html, body {
     background: rgb(99, 99, 99);
     color: white !important;
     font-family: Raleway;
-    overflow: hidden;
 
 }
 
@@ -154,7 +151,6 @@ html, body {
     display: grid;
     grid-row-start: 1;
     overflow: hidden;
-
 }
 .about-me_container{
     width: 100%;
@@ -541,7 +537,7 @@ html, body {
         justify-content: center;
         align-items: center;
         zoom: 0.4;
-        transform: translateY(-10px);
+        transform: translateY(-20px);
         top: 10px;
     }
     .btn2 .icon {
@@ -684,6 +680,31 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 1028px)  and (orientation : landscape){
+    .pages_container{
+        overflow: scroll;
+        grid-template-rows: 100%;
+    }
+
+
+    .about-me_container{
+        grid-template-rows: 95% 5%;
+    }
+
+    .about-me_item-wrap{
+        height: 330%;
+    }
+    .item_wrap{
+        overflow: scroll;
+    }
+    
+    .aboutme-grid-wrap{
+        overflow: scroll;
+    }
+}
+
+
+
 .btn2 {
     width: 100%;
     height: 100%;
@@ -735,6 +756,10 @@ html, body {
 .btn2:hover {
     cursor: pointer;
 }
+
+
+
+
 
 @keyframes zoomOutFull {
     from {
