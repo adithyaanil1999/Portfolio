@@ -533,10 +533,12 @@ html, body {
 }
 @media screen and (max-width: 1028px) {
     .btn2{
+        text-decoration: none;
         display: flex;
         justify-content: center;
         align-items: center;
-        zoom: 0.5;
+        zoom: 0.4;
+        transform: translateY(-10px);
         top: 10px;
     }
     .btn2 .icon {
