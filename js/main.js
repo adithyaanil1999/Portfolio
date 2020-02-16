@@ -30,14 +30,21 @@ window.onload = () => {
     const menuAboutMe = document.querySelector('.navitem-2');
     const menuProjects = document.querySelector('.navitem-3');
     const menuResume = document.querySelector('.navitem-4');
-
+    const projectBG = document.querySelector('.project-wrapper');
+    const projectCont = document.querySelector('.project-container');
 
 
     {
 
         init();
         addEventListeners();
+        handleMenuTransition(projectsCont,"My projects");
+        handleClick();
         
+    }
+
+    function viewProject(){
+        console.log(123);
     }
 
     function addEventListeners(){
@@ -63,10 +70,31 @@ window.onload = () => {
         menuAboutMe.addEventListener('click',handleMenuTransition.bind(null,aboutMeCont,"About Me"));
         menuProjects.addEventListener('click',handleMenuTransition.bind(null,projectsCont,"My projects"));
         menuResume.addEventListener('click',downloadResume.bind(null));
-
-
+        projectBG.addEventListener('click',handleCloseProject.bind(null));
+        // document.querySelector('.btn').addEventListener('click',openProject.bind(null));
     }
 
+    function handleCloseProject(){
+        animateCSS(projectBG,'fadeOut',()=>{
+            projectBG.style.display = 'none';
+        });
+        animateCSS(projectCont,'fadeOut',()=>{
+            projectCont.style.display = 'none';
+        })
+    }
+
+    function openProject(){
+        console.log('open');
+        projectBG.style.opacity = '0';
+        if(projectBG.style.opacity == '0')
+            projectBG.style.display = 'block';
+        animateCSS(projectBG,'fadeIn faster',()=>{
+            projectBG.style.opacity = '1';
+            projectCont.style.display = 'grid';
+            animateCSS(projectCont,'fadeIn');
+
+        });
+    }
     function downloadResume(){
         console.log('down');
         var link = document.createElement('a');
@@ -92,8 +120,8 @@ window.onload = () => {
         nextPage.style.display = 'grid';
         const navCont = nextPage.querySelector('.navdown-container');
         navCont.style.display = 'flex';
-        handleClick();
         currentHeaderName = title;
+        handleClick();
     }
 
 
