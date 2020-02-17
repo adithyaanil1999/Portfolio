@@ -2,7 +2,7 @@ window.onload = () => {
     
     //global variables
     var open_flag = false;
-    var skills = ['.skill_cat-1', '.skill_cat-2', '.skill_cat-3'];
+    const skills = ['.skill_cat-1', '.skill_cat-2', '.skill_cat-3'];
     var currentSkillPageNo = 0;
     var currentHeaderName = "Adithya Sreemandiram Anil";
     const header_containter = document.querySelector('.main_header-container');
@@ -32,21 +32,55 @@ window.onload = () => {
     const menuResume = document.querySelector('.navitem-4');
     const projectBG = document.querySelector('.project-wrapper');
     const projectCont = document.querySelector('.project-container');
+    const closeProject = document.querySelector('#project-close-btn');
 
+    //projects object
+
+    var project = {
+        1 : {
+            title: 'Portfolio',
+            screenshot: '../assets/portfolio.png',
+            description: "A static webpage showcases my skills and projects",
+            tech: "Vanilla JS, HTML5,CSS",
+            git: "https://github.com/adithyaanil1999/Portfolio",
+            address: "https://adithyaanil1999.github.io/Portfolio/"
+        }
+    };
 
     {
-
         init();
         addEventListeners();
+        addProjectBtns();
         handleMenuTransition(projectsCont,"My projects");
         handleClick();
         
+    }
+
+    function addProjectBtns(){
+        document.querySelector('.btn-project-1').addEventListener('click',openProject.bind(null,1));
+        closeProject.addEventListener('click',handleCloseProject.bind(null));
     }
 
     function viewProject(){
         console.log(123);
     }
 
+
+    function detectmob() { 
+        if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        ){
+           return true;
+        }
+        else {
+           return false;
+        }
+    }
     function addEventListeners(){
         down_arrow1.addEventListener('click', handlePageTransition.bind(null, homeCont, aboutMeCont, "About Me"));
         up_arrow2.addEventListener('click', handlePageTransition.bind(null, aboutMeCont, homeCont, "Adithya Sreemandiram Anil"));
@@ -62,7 +96,7 @@ window.onload = () => {
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            alert("Email address has been copied to clipboard")
+            alert("Email address has been copied to clipboard");
         });
         rightArrow.addEventListener('click',handleSkillPageTransitionRight.bind(null));
         leftArrow.addEventListener('click',handleSkillPageTransitionLeft.bind(null));
@@ -75,25 +109,56 @@ window.onload = () => {
     }
 
     function handleCloseProject(){
-        animateCSS(projectBG,'fadeOut',()=>{
-            projectBG.style.display = 'none';
-        });
-        animateCSS(projectCont,'fadeOut',()=>{
-            projectCont.style.display = 'none';
-        })
+        var isMob = detectmob();
+        if(isMob === false){
+            animateCSS(projectBG,'fadeOut',()=>{
+                projectBG.style.display = 'none';
+            });
+            animateCSS(projectCont,'fadeOut faster',()=>{
+                projectCont.style.display = 'none';
+            });
+        }
+        else{
+            animateCSS(projectCont,'slideOutDown',()=>{
+                projectCont.style.display = 'none';
+                animateCSS(projectBG,'fadeOut faster',()=>{
+                    projectBG.style.display = 'none';
+                });
+            });
+        }
+        
     }
 
-    function openProject(){
-        console.log('open');
-        projectBG.style.opacity = '0';
-        if(projectBG.style.opacity == '0')
-            projectBG.style.display = 'block';
-        animateCSS(projectBG,'fadeIn faster',()=>{
-            projectBG.style.opacity = '1';
-            projectCont.style.display = 'grid';
-            animateCSS(projectCont,'fadeIn');
-
-        });
+    function openProject(projectNo){
+        var isMob = detectmob();
+        if(isMob === false){
+            projectBG.style.opacity = '0';
+            if(projectBG.style.opacity == '0')
+                projectBG.style.display = 'block';
+            animateCSS(projectBG,'fadeIn faster',()=>{
+                projectBG.style.opacity = '1';
+                projectCont.style.display = 'grid';
+                animateCSS(projectCont,'fadeIn faster');
+            });
+        }
+        else{
+            console.log('this');
+            projectBG.style.opacity = '0';
+            if(projectBG.style.opacity == '0')
+                projectBG.style.display = 'block';
+            animateCSS(projectBG,'fadeIn faster',()=>{
+                projectBG.style.opacity = '1';
+                projectCont.style.display = 'grid';
+                animateCSS(projectCont,'slideInUp');
+            });
+        }
+        
+        const scCont = document.querySelector('.project-sc_cont');
+        const descCont = document.querySelector('.project-desc_cont');
+        const techCont = document.querySelector('.project-tech_cont');
+        const gitCont = document.querySelector('.project-git_cont');
+        const websiteCont = document.querySelector('.project-website_cont');
+        
     }
     function downloadResume(){
         console.log('down');

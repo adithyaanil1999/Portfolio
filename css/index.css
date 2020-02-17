@@ -538,7 +538,7 @@ html, body {
     display: none;
     grid-area: 1/1;
     grid-template-rows: 95% 5%;
-    background: rgb(181, 202, 191);
+    background: rgb(218, 226, 245);
 }
 
 .projects_item-wrap{
@@ -549,13 +549,17 @@ html, body {
     grid-template-rows: 10% 1fr 10%;
 }
 
+.project-nav > i{
+    color: rgb(58, 104, 104);
+}
+
 .project-wrapper{
     display: none;
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(87, 86, 86, 0.9);
+    background: rgba(87, 86, 86, 0.795);
     cursor: pointer;
     z-index: 3;
 }
@@ -563,7 +567,7 @@ html, body {
 .project-grid-outer_wrapper{
     grid-row: 2;
     grid-column: 2;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .project-grid-inner_wrapper{
     width: 100%;
@@ -575,31 +579,36 @@ html, body {
 }
 .project-container{
     display: none;
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     position: fixed;
     top:50%;
     left: 50%;
+    background: #E0E5EC;
     transform: translate(-50%, -50%);
     background: rgb(236, 236, 236);
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0 0 9px 9px rgb(77, 76, 76);
     z-index: 4;
+    /* display: grid; */
+    grid-template-rows: 60% 33% 1fr;
+    grid-template-columns: 50% 50%;
+
 }
-.project-item{
-    background: url(../assets/portfolio.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+.project-item {
+    overflow: hidden;
+    background-size: cover !important ;
+    background-repeat: no-repeat !important;
 }
 .project-item:hover .project-desc{
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity 1.2s;
     animation: slideInDown .3s;
 }
 .project-desc{
     height: 100%;
     width: 100%;
-    background: rgba(11, 11, 12, 0.5);
+    background: rgb(218, 226, 245);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -615,7 +624,7 @@ html, body {
 
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: rgb(159, 162, 170);
+    color: rgb(138, 138, 138);
     
 }
 
@@ -633,13 +642,107 @@ html, body {
 }
 
 .project-desc > button:focus{
-    outline: none;
+    outline: none !important;
 }
 .project-desc > button:hover{
-    background: rgb(136, 241, 241);
+    background: rgb(127, 194, 214);
     transition: background 1s;
 }
+
+.project-1{
+    background: url(../assets/portfolio.png);
+}
+.project-2{
+    background: url(../assets/whattowatch.png);
+}
+
+
+
+.project-container > button{
+    height: 40px;
+    width: 40px;
+    left: auto;
+    top:10px;
+    right:10px;
+    background: none;
+    position: absolute;
+    font-size: 1.3rem;
+    border: 2px solid white;
+    border-radius: 100%;
+    background-color:#E0E5EC;
+    box-shadow: 3px 3px 4px rgba(56, 56, 56, 0.164), 
+                -3px -3px 4px rgba(230, 230, 230, 0.158);
+    z-index: 3;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+
+}
+.project-container > button > i{
+    color: rgb(250, 250, 250);
+    box-shadow: 0 0 10px grey;
+    background: rgb(56, 56, 56);
+    border-radius: 100%;
+    transform: translateX(0.5px);
+    padding: 5px 7px 5px 7px;
+    -webkit-tap-highlight-color: transparent;
+}
+.project-container > button:focus{
+    outline: none !important;
+    user-select: none;
+}
+.project-container > button >i:focus{
+    outline: none !important;
+    user-select: none;
+}
+
+.project-sc_cont{
+    grid-row: 1;
+    grid-column: 1/3;
+}
+
+.project-sc_cont >img{
+    width: 100%;
+    height: 100%;
+}
+
+.project-desc_cont{
+    grid-row: 2;
+    grid-column: 1;
+    border-top: 5px solid rgb(129, 129, 129);
+}
+
+.project-tech_cont{
+    grid-row: 2;
+    grid-column: 2;
+    border-top: 5px solid rgb(129, 129, 129);
+
+}
+.project-git_cont{
+    grid-row: 3;
+    grid-column: 1;
+    background: blue;
+}
+
+.project-website_cont{
+    grid-row: 3;
+    grid-column: 2;
+    background: red;
+}
 @media screen and (max-width: 1028px) {
+
+    .project-container{
+        width: 100%;
+        height: 80%;
+        /* bottom: 20%; */
+        top:20%;
+        left: 0;
+        transform: none;
+        border-radius: 0;
+    }
     .btn2{
         text-decoration: none;
         display: flex;
@@ -801,6 +904,9 @@ html, body {
         grid-template-rows: 100%;
     }
 
+    .project-desc > h1{
+        font-size: 1rem;
+    }
     .project-grid-inner_wrapper{
         overflow-y: scroll;
         grid-template-columns: 33.33% 33.33% 33.33%;
