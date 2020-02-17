@@ -42,8 +42,8 @@ window.onload = () => {
             title: 'Portfolio',
             shortDesc: 'Personal Showcase',
             screenshot: '../assets/portfolio.png',
-            description: "A static webpage showcases my skills and projects",
-            tech: "Vanilla JS, HTML5,CSS",
+            description: "A static webpage build to showcase my skills and projects,made using minimal libaries, maximum original code.",
+            tech: "Vanilla JS,HTML5,CSS",
             git: "https://github.com/adithyaanil1999/Portfolio",
             link: "https://adithyaanil1999.github.io/Portfolio/"
         },
@@ -51,9 +51,9 @@ window.onload = () => {
             title: 'WhatToWatch.io',
             shortDesc: 'Random Movie Recommender',
             screenshot: '../assets/whattowatch.png',
-            description: "A static webpage showcases my skills and projects",
-            tech: "Vanilla JS, HTML5,CSS",
-            git: "https://github.com/adithyaanil1999/Portfolio",
+            description: "A static webpage which uses the TMDB API to fetch random movies, and list their details (and uses OMDB to fetch trailer and ratings). Implemented using MVC JS architecture",
+            tech: "jQuery,Webpack,Node.Js",
+            git: "https://github.com/adithyaanil1999/WhatToWatch",
             link: "https://adithyaanil1999.github.io/WhattoWatch.io/"
         }
     };
@@ -61,8 +61,6 @@ window.onload = () => {
     {
         init();
         addEventListeners();
-        handleMenuTransition(projectsCont,"My projects");
-        handleClick();
         populateProjectGrid();
 
         
