@@ -55,6 +55,15 @@ window.onload = () => {
             tech: "jQuery,Webpack,Node.Js",
             git: "https://github.com/adithyaanil1999/WhatToWatch",
             link: "https://adithyaanil1999.github.io/WhattoWatch.io/"
+        },
+        3:{
+            title: 'Carby',
+            shortDesc: 'Nutrition tracker',
+            screenshot: '../assets/carby.png',
+            description: "A web app that uses the Edamam API to tracker the calorific intake of the user. A full stack application that uses RESTful architecture to connect to mySQL DB using Express.JS web API's",
+            tech: "React.Js,Redux,Express.JS,mySQL",
+            git: "https://github.com/adithyaanil1999/carby",
+            link: "N/A"
         }
     };
 
