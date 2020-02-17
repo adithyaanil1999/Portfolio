@@ -33,38 +33,67 @@ window.onload = () => {
     const projectBG = document.querySelector('.project-wrapper');
     const projectCont = document.querySelector('.project-container');
     const closeProject = document.querySelector('#project-close-btn');
+    const projectGrid = document.querySelector('.project-grid-inner_wrapper');
 
     //projects object
 
     var project = {
         1 : {
             title: 'Portfolio',
+            shortDesc: 'Personal Showcase',
             screenshot: '../assets/portfolio.png',
             description: "A static webpage showcases my skills and projects",
             tech: "Vanilla JS, HTML5,CSS",
             git: "https://github.com/adithyaanil1999/Portfolio",
-            address: "https://adithyaanil1999.github.io/Portfolio/"
+            link: "https://adithyaanil1999.github.io/Portfolio/"
+        },
+        2:{
+            title: 'WhatToWatch.io',
+            shortDesc: 'Random Movie Recommender',
+            screenshot: '../assets/whattowatch.png',
+            description: "A static webpage showcases my skills and projects",
+            tech: "Vanilla JS, HTML5,CSS",
+            git: "https://github.com/adithyaanil1999/Portfolio",
+            link: "https://adithyaanil1999.github.io/WhattoWatch.io/"
         }
     };
 
     {
         init();
         addEventListeners();
-        addProjectBtns();
         handleMenuTransition(projectsCont,"My projects");
         handleClick();
+        populateProjectGrid();
+
         
     }
 
+    function populateProjectGrid(){
+        var html = '';
+        for(a in project){
+            html += 
+                `<div class="project-item project-1">
+                    <div class="project-desc">
+                    <h1>${project[a].title}</h1>
+                    <button class="btn-project-${a}">View More</button>
+                    </div>
+                    <img src="${project[a].screenshot}" alt="">
+
+                </div>
+                `;
+            ;
+        }
+        projectGrid.innerHTML = html;
+        addProjectBtns();
+
+    }
+
     function addProjectBtns(){
-        document.querySelector('.btn-project-1').addEventListener('click',openProject.bind(null,1));
+        for(a in project){
+            document.querySelector(`.btn-project-${a}`).addEventListener('click',openProject.bind(null,a));
+        }
         closeProject.addEventListener('click',handleCloseProject.bind(null));
     }
-
-    function viewProject(){
-        console.log(123);
-    }
-
 
     function detectmob() { 
         if( navigator.userAgent.match(/Android/i)
@@ -105,7 +134,6 @@ window.onload = () => {
         menuProjects.addEventListener('click',handleMenuTransition.bind(null,projectsCont,"My projects"));
         menuResume.addEventListener('click',downloadResume.bind(null));
         projectBG.addEventListener('click',handleCloseProject.bind(null));
-        // document.querySelector('.btn').addEventListener('click',openProject.bind(null));
     }
 
     function handleCloseProject(){
@@ -158,7 +186,24 @@ window.onload = () => {
         const techCont = document.querySelector('.project-tech_cont');
         const gitCont = document.querySelector('.project-git_cont');
         const websiteCont = document.querySelector('.project-website_cont');
+        const titleCont = document.querySelector('.project-title_cont');
         
+        scCont.innerHTML = `<img src="${project[projectNo].screenshot}" class="projects_screenshot">`;
+        titleCont.innerHTML = `<h1>${project[projectNo].title}</h1><h2>${project[projectNo].shortDesc}</h2>`;
+        descCont.innerHTML = `<h1>Description:</h1><p>${project[projectNo].description}</p>`;
+
+        var techArr = project[projectNo].tech.split(',');
+        var techHTML = '';
+        for (i in techArr){
+            techHTML += `<p>• ${techArr[i]}</p>`
+        }
+
+        techCont.innerHTML = `<h1>Technology Used:</h1>${techHTML}`;
+        gitCont.innerHTML = `<div class="project-git-link"><a href="${project[projectNo].git}" target="_blank">Code</a></div>`;
+        if(project[projectNo].link !== 'N/A')
+            websiteCont.innerHTML = `<div class="project-website-link"><a href="${project[projectNo].link}" target="_blank">Webpage</a></div>`;
+        else
+            websiteCont.innerHTML = `<div class="project-website-link"><p>${project[projectNo].link}</p></div>`;
     }
     function downloadResume(){
         console.log('down');
