@@ -64,6 +64,42 @@ window.onload = () => {
             tech: "React.Js,Redux,Express.JS,mySQL",
             git: "https://github.com/adithyaanil1999/carby",
             link: "N/A"
+        },
+        4:{
+            title: 'Placement and Training Cell Management Application',
+            shortDesc: 'On-campus recruiter application',
+            screenshot: './assets/ptc.png',
+            description: "A web app used as an mediator between students and campus recruiters during the placement sessions, digitizing the placement process.",
+            tech: "Ajax,Php,jQuery,mySQL",
+            git: "https://github.com/adithyaanil1999/PTC",
+            link: "N/A"
+        },
+        5:{
+            title: 'Organo',
+            shortDesc: 'e-Farmers Market',
+            screenshot: './assets/organo.png',
+            description: "A web app used as an interface between farmers and buyers, removing the need for middle-men.",
+            tech: "Ajax,Php,jQuery,mySQL",
+            git: "https://github.com/adithyaanil1999/Organo",
+            link: "N/A"
+        },
+        6:{
+            title: 'Cyclelister',
+            shortDesc: 'Cycle Sharing App',
+            screenshot: './assets/cycle.png',
+            description: "A web app used as an interface between cycle owners and renters in campus, like uber but for cycles. My first app made with no prior knowledge of web development",
+            tech: "Php,HTML,CSS,Js",
+            git: "https://github.com/adithyaanil1999/CycleLister",
+            link: "N/A"
+        },
+        7:{
+            title: 'Image enhancer',
+            shortDesc: 'Using combination of local and global contrast enhancement techniques',
+            screenshot: './assets/imgenhance.png',
+            description: "A python application that uses a combination of local and global enhancement on an image",
+            tech: "Python, openCV2",
+            git: "https://github.com/adithyaanil1999/Local-Global-Image-Enhancement/",
+            link: "N/A"
         }
     };
 
@@ -76,7 +112,6 @@ window.onload = () => {
     }
 
     function populateProjectGrid(){
-        console.log('grid');
         var html = '';
         for(a in project){
             html += 
@@ -208,10 +243,16 @@ window.onload = () => {
 
         techCont.innerHTML = `<h1>Technology Used:</h1>${techHTML}`;
         gitCont.innerHTML = `<div class="project-git-link"><a href="${project[projectNo].git}" target="_blank">Code</a></div>`;
-        if(project[projectNo].link !== 'N/A')
+        if(project[projectNo].link !== 'N/A'){
+            gitCont.style.width = '50%';
+            websiteCont.style.display = 'flex';
             websiteCont.innerHTML = `<div class="project-website-link"><a href="${project[projectNo].link}" target="_blank">Webpage</a></div>`;
-        else
-            websiteCont.innerHTML = `<div class="project-website-link"><p>${project[projectNo].link}</p></div>`;
+        }
+        else{
+            gitCont.style.width = '100%';
+            websiteCont.style.display = 'none';
+            websiteCont.innerHTML = ``;
+        }
     }
     function downloadResume(){
         console.log('down');
