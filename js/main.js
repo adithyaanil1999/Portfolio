@@ -76,6 +76,7 @@ window.onload = () => {
     }
 
     function populateProjectGrid(){
+        console.log('grid');
         var html = '';
         for(a in project){
             html += 
