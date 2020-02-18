@@ -41,7 +41,7 @@ window.onload = () => {
         1 : {
             title: 'Portfolio',
             shortDesc: 'Personal Showcase',
-            screenshot: '../assets/portfolio.png',
+            screenshot: './assets/portfolio.png',
             description: "A static webpage build to showcase my skills and projects,made using minimal libaries, maximum original code.",
             tech: "Vanilla JS,HTML5,CSS",
             git: "https://github.com/adithyaanil1999/Portfolio",
@@ -50,7 +50,7 @@ window.onload = () => {
         2:{
             title: 'WhatToWatch.io',
             shortDesc: 'Random Movie Recommender',
-            screenshot: '../assets/whattowatch.png',
+            screenshot: './assets/whattowatch.png',
             description: "A static webpage which uses the TMDB API to fetch random movies, and list their details (and uses OMDB to fetch trailer and ratings). Implemented using MVC JS architecture",
             tech: "jQuery,Webpack,Node.Js",
             git: "https://github.com/adithyaanil1999/WhatToWatch",
